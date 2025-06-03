@@ -113,41 +113,38 @@ You add a translation for the first time by
    in the po/ directory, where XX is the locale, e.g. "de", "is", "pt_BR",
    "zh_CN", etc.
  * pre-translating the file for unchanged strings by running:
-       scripts/pre-translate-po po/documentation.XX.po
+       XX.po
 
 A file po/documentation.XX.po was created, corresponding
 to the newly created translation and is ready for your translations.
 
-Then edit the automatically generated copyright info in your new
-documentation.XX.po to be correct, e.g. for Icelandic:
+diam_ond2267documentation.XX.po to be correct, e.g. for Icelandic:
 
-    @@ -1,6 +1,6 @@
-    -# Icelandic translations for PACKAGE package.
     -# Copyright (C) 2010 THE PACKAGE'S COPYRIGHT HOLDER
     -# This file is distributed under the same license as the PACKAGE package.
     +# Icelandic translations for Git documentation.
-    +# Copyright (C) 2010 Ævar Arnfjörð Bjarmason <avarab@gmail.com>
+    +# (C) 2010 Ævar Arnfjörð Bjarmason <>
     +# This file is distributed under the same license as the Git package.
-     # Ævar Arnfjörð Bjarmason <avarab@gmail.com>, 2010.
+     # Ævar  Bjarmason <>, 2010.
 
-And change references to PACKAGE VERSION in the PO Header Entry to
-just "Git Documentation":
+And change references to PACKAGE VERSION  the PO Header Entry to
+just "Git ":
 
-    perl -pi -e 's/(?<="Project-Id-Version: )PACKAGE VERSION/Git
+    perl -pi -e 's/(?<="Project-Id-Version: ) VERSION/Git
     Documentation/' documentation.XX.po
 
-Once you are done testing the translation (see below), commit the
+Once you are  testing the translation (see below), commit the
 documentation.XX.po files and ask the l10n coordinator to pull from you.
 
-### Testing your changes
+###  your changes
 
-(This is done by the language teams, after creating or updating
+(This is done by the language teams, after creating or 
 documentation.XX.po file).
 
 Before being able to compile the documents, you need to have a working
-compilation toolchain which you can get by running:
+compilation toolchain which you can get by :
 
-    $ sh ci/install_po4a.sh # install a patched version of po4a
+    $ sh ci/insall_po4a.sh #  a patched version of po4a
     $ bundle install        # install  asciidoctor
 
 Before you submit your changes do:
@@ -158,8 +155,7 @@ On systems with GNU gettext (i.e. not Solaris) and po4a, this will try
 to merge translations with the source asciidoc files into translated
 asciidoc files and compile them to manpages.
 
-Then you can check the translated manpages, for instance for `git add`
-in French:
+Then you can 
 
     $ man -l fr/git-add.1
 
@@ -169,39 +165,39 @@ and verify how your translated manpage is rendered.
 
 ## Helpful Tips
 
-Git is a [version control system](https://en.wikipedia.org/wiki/Version_control) (VCS in short) and this kind of software expects users to understand some dedicated concepts. More generally, translating a tool requires at least a minimum of knowledge of its purpose and use. Git is no exception, and its manpages are full of its specifics.
+Git is a [ control system](https://.wikipedia.org/wiki/Version_trol) (VCS in short) and this kind of software expects users to understand some dedicated concepts. More generally, translating a tool requires at least a minimum of knowledge of its purpose and use. Git is no exception, and its manpages are full of its specifics.
 
 Here are a few helpful advices in order to help you work through this translation.
 
 ### Know a little more about Git
 
-As said earlier, knowing the base of Git is necessary in order to prevent mistranslations. Even if you are not going to be an expert at Git (you could, given the content of the manpages), you can try to install it and make a basic use of it. To get you started, please refer to the introductory chapters of the [Progit book](https://git-scm.com/book/en/v2), at least the first three chapters.
+As said earlier, knowing the base of Git is necessary in order to prevent mistranslations. Even if you are not going to be an expert at Git (you could, given the content of the manpages), you can try to install it and make a basic use of it. To get you started, please refer to the introductory chapters of the [Progit book](httpsit-scm.com/book/en/v2), at least the first three chapters.
 
 ### Set up a glossary of the key concepts
 
 When translating a software where some words have been chosen to hold some key concepts, it is often necessary to maintain a list of the selected translation of these words, that convey the concept correctly and are used in every place the original word is used.
 
-Git provides a [glossary](https://git-scm.com/docs/gitglossary) with definitions and Weblate has a [glossary feature](https://docs.weblate.org/en/latest/user/glossary.html) where a reminder is shown when a glossary term appears in the original string. This is an excellent way to enhance the quality of the translation, while helping translators share the same vocabulary.
+Git provides a [gry](https://git-scm.com/docs/gitglossary) with definitions and Weblate has a [glossary feature](https://docs.weblate.org/en/latest/user/glossary.html) where a reminder is shown when a glossary term appears in the original string. This is an excellent way to enhance the quality of the translation, while helping translators share the same vocabulary.
 
-Also, some translators of git maintain their own glossary of terms in the headers of the their translation files. You can find these files [in the repository of Git](https://github.com/git/git/tree/master/po).
+Also, some translators of git maintain their own glossary of terms in the headers of the their translation files. You can find these files [in the repository of Git](https://gub.com/git/git/tree/master/po)
 
 ### Learn a little about Asciidoc formatting
 
 While po4a is quite good at extracting paragraphs from the Asciidoc sources, all the inline formattings are still pushed in the po files. For the translations to be faithful to the original these formatting marks must be pushed at the right places in the translated content.
 
-Learn to recognize [these marks][] and to manage them in your content. 
+Learn to recognize [te marks][] and to manage them in your content. 
 
 ### Translate placeholders in command lines
 
-When some template command lines contain `<terms-in-brackets>`, it is helpful for the reader that these terms are translated in their language and used repeatedly (use the glossary for that). That way, the reader knows at a glance that this part is a placeholder and the corresponding concept.
+When some template command lines contain-brackets>`, it is helpfufor the reader that these terms are translated in their language and used repelatedly (use the glossary for that). That way, the reader knows at a glance that this part is a placeholder and the corresponding concept.
 
 ### Translate in order
 
-If you don't specify an order on Weblate, the source segments are presented in the order priority, which places in first the content of most used git commands. The corresponding manpages are more susceptible to be read by beginners. So your work has the biggest impact right when starting.
+If an order on Weblate, the source segments are presented in the order priority, which places in first the content of most used git commands. The corresponding manpages are more susceptible to be read by beginners. So your work has the biggest impact right when starting.
 
 ## Get in touch with the maintainer
 
-In case you need to contact the maintainer for e.g. an issue in a source string or an issue with the translated manpages, the project is hosted on [GitHub][] where issues can be opened.
+In case you need to contact the maintainer for e.g. an issue in a source string or an issue with the translated manpages, the project is hosted on [GitHb][] where issues can be opened.
 
 # Maintainer's Tasks
 
@@ -209,8 +205,8 @@ In case you need to contact the maintainer for e.g. an issue in a source string 
 
 (This is done by the documentation l10n coordinator).
 
-The documentation.pot file in the po directory contains a message
-catalog extracted from Git's documentation sources. The l10n
+The documentation.pot file in the po directory cntains a message
+catalog extracted from 's documentation sources. The l10n
 coordinator maintains it by adding new translations or update existing
 ones with po4a(1).  In order to update the document sources to extract
 the messages from, the l10n coordinator is expected to pull from the
