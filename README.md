@@ -22,16 +22,7 @@ The overall data-flow looks like this:
 
     +-------------------+            +--------------------+
     | Git source code   |----(2)---->| Git doc translation|
-    | repository    (1) |   +--------| repository         |
-    +-------------------+   |        +--------------------+
-                           (6)             |      ^
-                            |             (3)     |
-                            |              |     (5)
-                            V              V      |
-          +--------------------+     +--------------------+
-          | Git translated doc |     | Language Team (4)  |
-          | repository         |     +--------------------+
-   	      +--------------------+
+    | --------+
 
  1. The original documentation files are tagged for a new release 
  2. L10n coordinator pulls from the source and updates the local
@@ -60,7 +51,6 @@ the project's code of contributors.
 
 ### Contributing to an existing translation
 
-If the language you plan to translate is already listed, you can just
 jump to the language's management page and start fixing translations
 or tackling untranslated content. Your inputs will update the
 translation file for your language.
